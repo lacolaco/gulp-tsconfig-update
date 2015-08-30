@@ -1,0 +1,10 @@
+machine:
+  node:
+    version: "0.12"
+
+dependencies:
+  pre:
+    - npm install -g gulp dtsm
+  override:
+    - npm install
+    - dtsm --insight false install
