@@ -1,5 +1,7 @@
 # gulp-tsconfig-update
 
+[![Circle CI](https://circleci.com/gh/laco0416/gulp-tsconfig-update.svg?style=svg)](https://circleci.com/gh/laco0416/gulp-tsconfig-update)
+
 A gulp plugin to update `files` property in tsconfig.json by `gulp.src` glob.
 
 ## Install
