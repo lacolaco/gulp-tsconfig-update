@@ -45,7 +45,7 @@ let plugin = (pluginOptions: model.PluginOption) => {
   let updateTsConfig = () => {
     tsConfig.files = tsFiles.map((file)=> {
       return file.path.replace(file.cwd, ".");
-    });
+    }).sort();
     fs.writeFileSync(tsConfigPath, JSON.stringify(tsConfig, null, 4), "utf-8");
     //gutil.log("update json: ", tsConfigPath);
   };
