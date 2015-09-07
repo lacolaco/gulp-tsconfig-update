@@ -22,20 +22,6 @@ gulp.task('tsConfig', function() {
 });
 ```
 
-or
-
-```
-var gulp = require("gulp");
-var tsConfig = require('gulp-tsconfig-update');
-
-gulp.task('tsConfig', function() {
-  return gulp.src("./src/**/*.ts")
-      .pipe(tsConfig({
-        configFile: "./tsconfig.json"
-      }));
-});
-```
-
 ## Notes
 
 * If `./tsconfig.json` exists, its `files` property is overwritten.

@@ -26,6 +26,7 @@
     "del": "^1.2.1",
     "gulp": "^3.9.0",
     "mocha": "^2.2.5",
+    "run-sequence": "^1.1.2",
     "typescript": "^1.5.3",
     "typescript-require": "^0.2.9"
   },

@@ -42,25 +42,26 @@ let plugin = (pluginOptions: model.PluginOption) => {
 
   let tsFiles = <vinylFile[]>[];
 
-  let updateTsConfig = () => {
-    tsConfig.files = tsFiles.map((file)=> {
-      return file.path.replace(file.cwd, ".");
-    }).sort();
-    fs.writeFileSync(tsConfigPath, JSON.stringify(tsConfig, null, 4), "utf-8");
-    //gutil.log("update json: ", tsConfigPath);
-  };
-
-  return through(function (file: vinylFile) {
-    if (file.isNull()) {
-      return;
-    }
-    if (file.isStream()) {
-      gutil.log(new PluginError("gulp-tslint", `Streaming not supported: ${file.path}`));
-      return;
-    }
-    //gutil.log("glob hits: ", file.relative);
-    tsFiles.push(file);
-  }, updateTsConfig);
+  return through(
+      function write(file: vinylFile) {
+        if (file.isNull()) {
+          return;
+        }
+        if (file.isStream()) {
+          gutil.log(new PluginError("gulp-tslint", `Streaming not supported: ${file.path}`));
+          return;
+        }
+        //gutil.log("glob hits: ", file.relative);
+        tsFiles.push(file);
+        this.emit("data", file);
+      },
+      function end() {
+        tsConfig.files = tsFiles.map((file)=> {
+          return file.path.replace(file.cwd, ".");
+        });
+        fs.writeFileSync(tsConfigPath, JSON.stringify(tsConfig, null, 4), "utf-8");
+        this.emit("end")
+      });
 };
 
 module.exports = plugin;

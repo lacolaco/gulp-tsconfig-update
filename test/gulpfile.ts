@@ -2,6 +2,7 @@
 
 import gulp = require("gulp");
 import del = require("del");
+import runSequence = require("run-sequence");
 
 let tsConfig: any = require('../index');
 
@@ -9,10 +10,14 @@ gulp.task("clean", (cb)=> {
   del("./tsconfig.json", cb);
 });
 
-gulp.task('default', ["clean"], () => {
-  return gulp.src("./src/**/*.ts")
-      .pipe(tsConfig({
-        configFile: "./tsconfig.json"
-      }))
-      .pipe(gulp.dest("./"));
+gulp.task('tsconfig', () => {
+  gulp.src([
+    "./src/**/*.ts",
+    "./src2/**/*.ts"
+  ])
+      .pipe(tsConfig());
+});
+
+gulp.task('default', (cb) => {
+  runSequence("clean", "tsconfig", cb);
 });
