@@ -7,11 +7,11 @@ import runSequence = require("run-sequence");
 let tsConfig: any = require('../index');
 
 gulp.task("clean", (cb)=> {
-  del("./tsconfig.json", cb);
+  return del(["./tsconfig.json"], cb);
 });
 
 gulp.task('tsconfig', () => {
-  gulp.src([
+  return gulp.src([
     "./src/**/*.ts",
     "./src2/**/*.ts"
   ])

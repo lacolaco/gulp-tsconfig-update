@@ -57,7 +57,7 @@ let plugin = (pluginOptions: model.PluginOption) => {
       },
       function end() {
         tsConfig.files = tsFiles.map((file)=> {
-          return file.path.replace(file.cwd, ".");
+          return file.path.replace(file.cwd, ".").replace("\\", "/");
         });
         fs.writeFileSync(tsConfigPath, JSON.stringify(tsConfig, null, 4), "utf-8");
         this.emit("end")
