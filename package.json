@@ -1,6 +1,6 @@
 {
   "name": "gulp-tsconfig-update",
-  "version": "1.0.6",
+  "version": "1.0.8-2",
   "description": "A gulp plugin to update `files` property in tsconfig.json by `gulp.src`.",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,11 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.2.0",
-    "del": "^1.2.1",
+    "del": "^2.0.1",
     "gulp": "^3.9.0",
-    "mocha": "^2.2.5",
+    "mocha": "^2.3.2",
     "run-sequence": "^1.1.2",
-    "typescript": "^1.5.3",
+    "typescript": "^1.6.0-beta",
     "typescript-require": "^0.2.9"
   },
   "dependencies": {
