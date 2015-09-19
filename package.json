@@ -1,10 +1,10 @@
 {
   "name": "gulp-tsconfig-update",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A gulp plugin to update `files` property in tsconfig.json by `gulp.src`.",
   "main": "index.js",
   "scripts": {
-    "setup": "npm install && dtsm --insight false install", 
+    "setup": "npm install && dtsm --insight false install",
     "build": "tsc",
     "test": "tsc && cd test && gulp && mocha test.js"
   },
