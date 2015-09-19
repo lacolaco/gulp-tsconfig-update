@@ -26,19 +26,4 @@ gulp.task('tsConfig', function() {
 
 * If `./tsconfig.json` exists, its `files` property is overwritten.
 
-* If `./tsconfig.json` doesn't exist, this plugin will generate the file with default options like below.
-
-```
-{
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "declaration": false,
-        "noImplicitAny": true,
-        "removeComments": false,
-        "noLib": false,
-        "preserveConstEnums": false,
-        "suppressImplicitAnyIndexErrors": false
-    }
-}
-```
+* If `./tsconfig.json` doesn't exist, this plugin will generate the file similar to that created by `tsc --init`
