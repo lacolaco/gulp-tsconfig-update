@@ -15,18 +15,8 @@ let PluginError: any = gutil.PluginError;
 let RcLoader: any = require("rcloader");
 
 function defaultTsConfig(): model.TsConfig {
-  return <model.TsConfig>{
-    compilerOptions: {
-      target: "es5",
-      module: "commonjs",
-      declaration: false,
-      noImplicitAny: true,
-      removeComments: false,
-      noLib: false,
-      preserveConstEnums: false,
-      suppressImplicitAnyIndexErrors: false
-    }
-  }
+  let initiated: any = require("./_tsconfig.json");
+  return <model.TsConfig>initiated;
 }
 
 let plugin = (pluginOptions: model.PluginOption) => {

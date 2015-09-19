@@ -5,18 +5,7 @@ var plugin = require("../lib/Index");
 
 describe("gulp-tsconfig-update", function () {
 
-  var defaultConfig = {
-    compilerOptions: {
-      target: "es5",
-      module: "commonjs",
-      declaration: false,
-      noImplicitAny: true,
-      removeComments: false,
-      noLib: false,
-      preserveConstEnums: false,
-      suppressImplicitAnyIndexErrors: false
-    }
-  };
+  var defaultConfig = require("../lib/_tsconfig.json");
 
   var files = [
     "./src/bar.ts",
