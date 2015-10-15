@@ -10,9 +10,7 @@ import through = require("through");
 import vinylFile = require("vinyl");
 import promise = require("es6-promise")
 
-let map: any = require("map-stream");
 let PluginError: any = gutil.PluginError;
-let RcLoader: any = require("rcloader");
 
 function defaultTsConfig(): model.TsConfig {
   let initiated: any = require("./_tsconfig.json");
