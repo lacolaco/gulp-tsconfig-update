@@ -5,7 +5,7 @@ var plugin = require("../lib/Index");
 
 describe("gulp-tsconfig-update", function () {
 
-  var defaultConfig = require("../lib/_tsconfig.json");
+  var defaultConfig = require("./_tsconfig.json");
 
   var files = [
     "./src/bar.ts",

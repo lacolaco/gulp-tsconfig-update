@@ -1,6 +1,6 @@
 declare module model {
   interface PluginOption {
-    configFile: string;
+    defaultConfig?: TsConfig;
   }
 
   interface TsConfig {

@@ -14,8 +14,9 @@ gulp.task('tsconfig', () => {
   return gulp.src([
     "./src/**/*.ts",
     "./src2/**/*.ts"
-  ])
-      .pipe(tsConfig());
+  ]).pipe(tsConfig({
+    defaultConfig: require("./_tsconfig.json")
+  }));
 });
 
 gulp.task('default', (cb) => {

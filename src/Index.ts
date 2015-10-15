@@ -20,11 +20,16 @@ function defaultTsConfig(): model.TsConfig {
 let plugin = (pluginOptions: model.PluginOption) => {
   pluginOptions = pluginOptions || <model.PluginOption>{};
 
-  let tsConfigPath = pluginOptions.configFile || "./tsconfig.json";
+  let tsConfigPath = "./tsconfig.json";
   let tsConfig: model.TsConfig;
-  if (fs.existsSync(tsConfigPath)) {
+  if (pluginOptions.defaultConfig) {
+    // user defined default config
+    tsConfig = pluginOptions.defaultConfig;
+  } else if (fs.existsSync(tsConfigPath)) {
+    // existing config
     tsConfig = <model.TsConfig>JSON.parse(fs.readFileSync(tsConfigPath, "utf-8"));
   } else {
+    // default config
     tsConfig = defaultTsConfig();
   }
 
@@ -45,7 +50,7 @@ let plugin = (pluginOptions: model.PluginOption) => {
       },
       function end() {
         tsConfig.files = tsFiles.map((file)=> {
-          return file.path.replace(file.cwd, ".").replace(/\\/g,"/");
+          return file.path.replace(file.cwd, ".").replace(/\\/g, "/");
         });
         fs.writeFileSync(tsConfigPath, JSON.stringify(tsConfig, null, 4), "utf-8");
         this.emit("end")
