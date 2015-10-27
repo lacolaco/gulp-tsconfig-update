@@ -50,7 +50,7 @@ let plugin = (pluginOptions: model.PluginOption) => {
       },
       function end() {
         tsConfig.files = tsFiles.map((file)=> {
-          return file.path.replace(file.cwd, ".").replace(/\\/g, "/");
+          return path.relative(file.cwd, file.path).replace(/\\/g, "/");
         });
         fs.writeFileSync(tsConfigPath, JSON.stringify(tsConfig, null, 4), "utf-8");
         this.emit("end")
