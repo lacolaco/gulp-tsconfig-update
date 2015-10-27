@@ -8,10 +8,10 @@ describe("gulp-tsconfig-update", function () {
   var defaultConfig = require("./_tsconfig.json");
 
   var files = [
-    "./src/bar.ts",
-    "./src/foo.ts",
-    "./src2/bar.ts",
-    "./src2/foo.ts"
+    "src/bar.ts",
+    "src/foo.ts",
+    "src2/bar.ts",
+    "src2/foo.ts"
   ];
 
   it("generates expected json", function () {
