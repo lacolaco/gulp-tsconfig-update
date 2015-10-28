@@ -10,6 +10,12 @@ describe("gulp-tsconfig-update", function () {
   var files = [
     "src/bar.ts",
     "src/foo.ts",
+    "src2/src3/bar.ts",
+    "src2/src3/foo.ts",
+    "src2/src4/bar.ts",
+    "src2/src4/foo.ts",
+    "src2/src5/bar.ts",
+    "src2/src5/foo.ts",
     "src2/bar.ts",
     "src2/foo.ts"
   ];
