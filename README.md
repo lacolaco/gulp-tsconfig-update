@@ -1,3 +1,6 @@
+# Dead.
+Please use https://www.npmjs.com/package/tsconfig-cli instead of this.
+
 # gulp-tsconfig-update
 
 [![Build Status](https://travis-ci.org/laco0416/gulp-tsconfig-update.svg)](https://travis-ci.org/laco0416/gulp-tsconfig-update)
